@@ -13,6 +13,15 @@ export default function TextForm(props) {
     const handleClearClick = () => {
         setText('');
     }
+    const handleCopyClick = () => {
+        var text = document.getElementById('myBox');
+        text.select();  //selects and highlights the text        
+        navigator.clipboard.writeText(text.value);  //copies text
+    }
+    const handleExtraSpace = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
     //handleOnChange is required in the textarea to enable editing the value. Otherwise, the value will always be {text} and you will not be able to type
     const handleOnChange = (event) =>{
         console.log("handleOnChange was clicked");
@@ -28,6 +37,8 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleUpLowClick}>Convert to Lowercase</button>
         <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear text</button>
+        <button className="btn btn-primary mx-1" onClick={handleCopyClick}>Copy text</button>
+        <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>Remove extra space</button>
         </div>
 
           <div className="container my-3">    
