@@ -48,7 +48,7 @@ function App() {
     {/* /users/ --> Component1 
     /users/home --> Component2  */}
           <Route exact path="/about">
-            <About />
+            <About mode={mode} />
           </Route>         
           <Route exact path="/">
             <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>  
