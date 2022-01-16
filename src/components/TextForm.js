@@ -21,10 +21,10 @@ export default function TextForm(props) {
       
     }
     const handleCopyClick = () => {
-        var text = document.getElementById('myBox');
-        text.select();  //selects and highlights the text        
-        navigator.clipboard.writeText(text.value);  //copies text
-        document.getSelection().removeAllRanges(); //to remove highlight
+        // var text = document.getElementById('myBox');
+        // text.select();  //selects and highlights the text        
+        navigator.clipboard.writeText(text);  //copies text
+      //  document.getSelection().removeAllRanges(); //to remove highlight
         text.value.length >= 0 ? props.showAlert("Copied to Clipboard!", "success") : props.showAlert("No text found", "danger");
     }
     const handleExtraSpace = () => {
@@ -53,7 +53,7 @@ export default function TextForm(props) {
 
           <div className="container my-3" style={{color: props.mode === 'light' ? 'black' : 'white'}}>    
           <h2>Your text summary</h2>         
-            <p>{text.split(" ").filter((ele) => { return ele.length !== 0 }).length} words and {text.length} characters</p>
+            <p>{text.split(/\s+/).filter((ele) => { return ele.length !== 0 }).length} words and {text.length} characters</p>
             <p>{0.008 * text.split(" ").filter((ele) => { return ele.length !== 0 }).length} minutes read</p>
             <h3>Preview</h3>
             <p>{text.length > 0 ? text : "Nothing to preview!"}</p>

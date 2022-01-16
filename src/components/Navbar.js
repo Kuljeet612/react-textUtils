@@ -15,7 +15,7 @@ export default function Navbar(props) {     //React function based component
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 {/* Replacing <a> with "Link" and href with "to" to enable and use Routes */}
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link" aria-current="page" to="/">Home</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">{props.aboutText}</Link>
