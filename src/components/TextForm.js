@@ -5,22 +5,31 @@ export default function TextForm(props) {
     const handleUpClick = () =>{
         // console.log("Uppercase was clicked" + text);
         setText(text.toUpperCase());
+        text.length > 0 ? props.showAlert("Converted to uppercase", "success") : props.showAlert("No text found", "danger");
     }
     const handleUpLowClick = () =>{
         // console.log("Uppercase was clicked" + text);
         setText(text.toLowerCase());
+        text.length > 0 ? props.showAlert("Converted to lowercase", "success") : props.showAlert("No text found", "danger");
+        
     }
-    const handleClearClick = () => {
-        setText('');
+    const handleClearClick = () => {    
+        if(text.length > 0) {
+            setText('');
+            props.showAlert("Text has been cleared", "success");
+        }       
+      
     }
     const handleCopyClick = () => {
         var text = document.getElementById('myBox');
         text.select();  //selects and highlights the text        
         navigator.clipboard.writeText(text.value);  //copies text
+        text.value.length >= 0 ? props.showAlert("Copied to Clipboard!", "success") : props.showAlert("No text found", "danger");
     }
     const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/);
-        setText(newText.join(" "));
+        setText(newText.join(" ")); 
+        props.showAlert("Extra spaces removed", "success");          
     }
     //handleOnChange is required in the textarea to enable editing the value. Otherwise, the value will always be {text} and you will not be able to type
     const handleOnChange = (event) =>{
