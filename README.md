@@ -5,7 +5,7 @@ Bootstrap has been used for styling.
 
 Dark mode feature also available.
 
-Hosted at netlify: peaceful-goldberg-1e3dc1.netlify.app/
+Hosted at netlify: http://peaceful-goldberg-1e3dc1.netlify.app/
 
 ![image](https://user-images.githubusercontent.com/16205759/163842545-a3fe08bc-f697-4850-aea7-6823ee5e9d70.png)
 
